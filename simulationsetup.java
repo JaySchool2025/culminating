@@ -11,10 +11,11 @@ class World {
     int greenenergyplants;
     int photoplants;
     int totalcash;
+    int = TimeSincePDMech;
     String worldname;
 
     // Constructor fixed: missing assignments corrected
-    public World(int coalplants, int naturalgasplants, int nuclearplants, int greenenergyplants, int photoplants, int totalcash, String worldname;) {
+    public World(int coalplants, int naturalgasplants, int nuclearplants, int greenenergyplants, int photoplants, int totalcash, String worldname;, int TimeSincePDMech) {
         this.coalplants = coalplants;
         this.naturalgasplants = naturalgasplants;
         this.nuclearplants = nuclearplants;
@@ -22,6 +23,7 @@ class World {
         this.photoplants = photoplants;
         this.totalcash = totalcash;
         this.worldname = worldname;
+        this.TimeSincePDMech = TimeSincePDMech;
     }
 }
 
@@ -54,7 +56,10 @@ public class simulationsetup {
         }
 
         if (option == 2) {
-            loadsim();
+            System.out.println("What simulation would you like to load?");
+            loadworldname = s.nextLine();
+            worldloader(loadworldname);
+        
         }
 
         if (option == 3) {
@@ -132,7 +137,7 @@ public class simulationsetup {
     public static void readsimulations() {
         String filepath = "worlds.txt"
         
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath)){
             String line;
             While((line = reader.readLine()) != null) {
                System.out.println(line);
@@ -145,25 +150,42 @@ public class simulationsetup {
          
      }      
 
-    public static void loadsim() {
-        // Placeholder
+    public static void worldloader(String desiredword) {
+        String filepath = "worlds.txt"
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(filepath)){
+         String line
+         while((line.reader.readLine()) != null) { 
+         Linenumber++
+         
+            if (line.toLowerCase().matches(".*world:" + desiredword.toLowerCase() + "\\b.*")) {               
+            int worldline = linenumber;
+         }
+        
+        }
+        catch (IOException e){
+         System.out.println("Cannot read file" + e.getMessage()); 
+        }
+        
+         
     }
 
     public static void initialsavesim(int[] arr, String name) {
         Filewriter worldwriter = new Filewriter ("worlds.txt");
-            worldwriter.write("World: " + Newworld.worldnames + "/n");
-            worldwriter.write("Coal plants: " + Newworld.coalplants + "/n");
-            worldwriter.write("Nuclear plants: " + Newworld.nuclearplants + "/n");
-            worldwriter.write("green energy plants: " + Newworld.greenenergyplants + "/n");
-            worldwriter.write("photosynth plants: " + Newworld.photoplants + "/n");
-            worldwriter.write("Cash Held: " + Newworld.totalcash + "/n");
-            worldwriter.write("Temperature: 14.7C");
-              
+            worldwriter.write("World:" + Newworld.worldnames + 
+            "|Coal plants:" + Newworld.coalplants + 
+            "|Natural Gas plants:" + Newworld.naturalgasplants + 
+            "|Nuclear Plants:" + Newworld.nuclearplants + 
+            "|Green plants:" + Newworld.greenenergyplants + 
+            "|PhotoSynthesis Plants:" + Newworld.photoplants + 
+            "|Total Money:" + Newworld.totalcash + 
+            "|World Temp(celsius):14.7" + 
+            "|Time Since plant death mechanic:0|");
+            worldwriter.write(System.lineseperator());
+            worldwriter.close();
+                          
     }
 
-    public static void loadfile() {
-        // Placeholder
-    }
 
     public static void informatives() {
         System.out.println("Coal Plant: +1.0 megatons CO₂/year — produces 5 gigawatts/year — costs $250M yearly to maintain.");
