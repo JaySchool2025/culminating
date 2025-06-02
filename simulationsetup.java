@@ -191,9 +191,9 @@ public class simulationsetup {
         System.out.println("Coal Plant: +1.0 megatons CO₂/year — produces 5 gigawatts/year — costs $250M yearly to maintain.");
         System.out.println("Natural Gas Plant: +0.45 megatons CO₂/year — produces 4.5 gigawatts/year — costs $220M yearly to maintain.");
         System.out.println("Nuclear Plant: +0.02 megatons CO₂/year — produces 7.0 gigawatts/year — costs $400M yearly to maintain.");
-        System.out.println("Green Energy Plant: +0.00 megatons CO₂/year — produces 2.5 gigawatts/year — costs $150M yearly to maintain.");
+        System.out.println("Green Energy Plant: +0.00 megatons CO₂/year — produces 2.5 gigawatts/year — costs $300M yearly to maintain.");
         System.out.println("Photosynthesizing Plant: −0.25 megatons CO₂/year — costs $20M yearly to maintain.");
-        System.out.println("1 gigawatt = $50M");
+        System.out.println("1 gigawatt = $100M");
         System.out.println("If global temperature > 16.7°C, Photosynthesizing Plants die at 250 per year.");
         System.out.println("If global temperature > 17.7°C, Photosynthesizing Plants die at 500 per year.");
         System.out.println("If global temperature < 16.2°C, Photosynthesizing Plants regrow at 50 per year.");
