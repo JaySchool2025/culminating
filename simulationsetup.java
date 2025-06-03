@@ -47,7 +47,7 @@ public class simulationsetup {
             System.out.println("Opening menu.");
         }
 
-        System.out.printf("\nWould you like to \n1 - start new simulation \n2 - load simulations \n3 - view all your simulations current status \n4 - save simulation to file \n5 - runsimulation \n6 - information \n7 - quit\n");
+        System.out.printf("\nWould you like to \n1 - start new simulation \n2 - load simulations \n3 - view all your simulations current status \n4 - save simulation to file \n5 - run simulation \n6 - information \n7 - quit\n");
         int option = s.nextInt();
         s.nextLine(); 
         
@@ -188,16 +188,27 @@ public class simulationsetup {
 
 
     public static void informatives() {
+        System.out.println("Plant information:");
         System.out.println("Coal Plant: +1.0 megatons CO₂/year — produces 5 gigawatts/year — costs $250M yearly to maintain.");
         System.out.println("Natural Gas Plant: +0.45 megatons CO₂/year — produces 4.5 gigawatts/year — costs $220M yearly to maintain.");
         System.out.println("Nuclear Plant: +0.02 megatons CO₂/year — produces 7.0 gigawatts/year — costs $400M yearly to maintain.");
         System.out.println("Green Energy Plant: +0.00 megatons CO₂/year — produces 2.5 gigawatts/year — costs $300M yearly to maintain.");
         System.out.println("Photosynthesizing Plant: −0.25 megatons CO₂/year — costs $20M yearly to maintain.");
-        System.out.println("1 gigawatt = $100M");
+        System.out.println("");
+        System.out.println("Ecological information:");
         System.out.println("If global temperature > 16.7°C, Photosynthesizing Plants die at 250 per year.");
         System.out.println("If global temperature > 17.7°C, Photosynthesizing Plants die at 500 per year.");
         System.out.println("If global temperature < 16.2°C, Photosynthesizing Plants regrow at 50 per year.");
         System.out.println("2 year delay on Photosynthesizing Plant death/regrowth.");
-        System.out.println("If global temperature > 19.7°C, simulation ends");
+        System.out.println("If global temperature > 19.7°C, simulation ends.");
+        System.out.println("");
+        System.out.println("Economic information:")
+        System.out.println("1 gigawatt = $100M.");
+        System.out.println("The player may buy additional plants (all types) during pauses.");
+        System.out.println("If unable to upkeep maintenance costs, the player may choose which plants to rid themselves of during pauses between sessions.");
+        System.out.println("If global temperature increases above 17.2°C, -10% income from energy production.");
+        System.out.println("If global temperature increases above 18.2°C, -20% income from energy production, +10% maintenance costs.");
+        System.out.println("If global temperature increases above 18.7°C, -40% income from energy production, +25% maintenance costs.");
+        System.out.println("If player goes $10M into debt, simulation ends.");
     }
 }
