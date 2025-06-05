@@ -1,0 +1,11 @@
+Current Temperature: 14.7°C
+Current Balance: $1.0B
+CO2 Emissions: ## Mt/year
+Income: $###M/year
+Total Energy Producing Plants: ##
+Photosynthesizing Plants: ##
+
+Would you like to proceed to the next year, proceed by 5 years, or go to a specific menu?
+1 - Proceed 1 year.
+2 - Proceed 5 years.
+3 - Choose a specific menu.
