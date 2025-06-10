@@ -7,14 +7,15 @@ public class GameMain{
    
    public void FirstMessage(){
       
-      System.out.printf("Welcome to the climate simulation./nBefore we start, would you like to go over some of the information/features of this game?");
+      System.out.printf("Welcome to the climate simulation.\nBefore we start, would you like to go over some of the information/features of this game?\n");
       
       String confirmation = s.nextLine();
       confirmation = confirmation.toLowerCase();
       
       if(confirmation.equals("yes")){
          
-         simulationsetup.informatives();
+         System.out.print("WIP collaboration with sim setup file");
+         OverviewTimePassage();
          
       }else if(confirmation.equals("no")){
          
@@ -42,62 +43,62 @@ public class GameMain{
       
       //if(/*balance < 0*/){
       
-        // System.out.printf("/n/nBalance is negative. Exact value: /d. Please be wary of this."/* + balance*/);
+        // System.out.printf("\n\nBalance is negative. Exact value: \d. Please be wary of this."/* + balance*/);
       
       //}
       //if(/*co2 emissions >= 1*/){
          
-      //   System.out.printf("/n/nCO2 Emissions are above 1. Exact value: /.2f. Please be wary of this."/* + co2 emissions*/);
+      //   System.out.printf("\n\nCO2 Emissions are above 1. Exact value: \.2f. Please be wary of this."/* + co2 emissions*/);
          
       //}
       //if(/*temperature >= 15.2*/){
       
-      //   System.out.printf("/n/nTemperature is above 15.2°C. Exact value: /.1f. Please be wary of this."/* + temperature*/);
+      //   System.out.printf("\n\nTemperature is above 15.2°C. Exact value: \.1f. Please be wary of this."/* + temperature*/);
       
       //}
       
-      System.out.printf("/nWould you like to proceed to the next year, proceed by 5 years, or go to a specific menu?/n1 - Proceed 1 year./n2 - Proceed 5 years./n3 - Choose a specific menu.");
+      System.out.printf("\nWould you like to proceed to the next year, proceed by 5 years, or go to a specific menu?\n1 - Proceed 1 year.\n2 - Proceed 5 years.\n3 - Choose a specific menu.\n");
       int choice = s.nextInt();
       
-      /*if(choice == 1){
+      if(choice == 1){
          
-         //proceed 1 year, call methods to proceed
+         System.out.println("proceed 1 year, call methods to proceed");
          OverviewTimePassage();
          
       }
       else if(choice == 2){
          
-         //proceed 5 years, call methods to proceed 5 times
+         System.out.println("proceed 5 years, call methods to proceed 5 times");
          OverviewTimePassage();
          
       }
-      else */if(choice == 3){
-         
-         while(1 == 1){
-         System.out.printf("/nPlease choose the menu that you would like to go to./n1 - Detailed Balance Sheet of Energy Income and Plant Maintenance./n2 - Detailed Sheet for CO2 Emissions and Absorption./n3 - Menu for buying & selling Plants (All Types)./n4 - Return to Overview.");
+      else if(choice == 3){
+         boolean loop = true;
+         while(loop = true){
+         System.out.printf("\nPlease choose the menu that you would like to go to.\n1 - Detailed Balance Sheet of Energy Income and Plant Maintenance.\n2 - Detailed Sheet for CO2 Emissions and Absorption.\n3 - Menu for buying & selling Plants (All Types).\n4 - Return to Overview.\n");
          int menuchoice = s.nextInt();
          
          if(menuchoice == 1){
             
-            break;
+            loop = false;
             BalanceSheet();
             
          }
          else if(menuchoice == 2){
             
-            break;
+            loop = false;
             CO2Emission();
             
          }
          else if(menuchoice == 3){
             
-            break;
-            PLantMerchant();
+            loop = false;
+            PlantMerchant();
             
          }
          else if(menuchoice == 4){
             
-            break;
+            loop = false;
             OverviewTimePassage();
             
          }
