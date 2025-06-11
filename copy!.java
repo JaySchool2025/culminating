@@ -5,24 +5,27 @@ import java.io.OutputStreamWriter;
 
 // Class name corrected: no parentheses in class declaration
 class World {
+    String worldname;
     int coalplants;
     int naturalgasplants;
     int nuclearplants;
     int greenenergyplants;
     int photoplants;
     int totalcash;
-    int = TimeSincePDMech;
-    String worldname;
+    int worldtemp;
+    int TimeSincePDMech;
+    
 
     // Constructor fixed: missing assignments corrected
-    public World(int coalplants, int naturalgasplants, int nuclearplants, int greenenergyplants, int photoplants, int totalcash, String worldname;, int TimeSincePDMech) {
+    public World(String worldname, int coalplants, int naturalgasplants, int nuclearplants, int greenenergyplants, int photoplants, int totalcash, int worldtemp, int TimeSincePDMech) {
+        this.worldname = worldname;
         this.coalplants = coalplants;
         this.naturalgasplants = naturalgasplants;
         this.nuclearplants = nuclearplants;
         this.greenenergyplants = greenenergyplants;
         this.photoplants = photoplants;
         this.totalcash = totalcash;
-        this.worldname = worldname;
+        this.worldtemp = worldtemp;
         this.TimeSincePDMech = TimeSincePDMech;
     }
 }
@@ -134,22 +137,41 @@ public class simulationsetup {
       
    }
    
-    public static void readsimulations() {
+    public static void readsortsimulations() { //turn into sort
         String filepath = "worlds.txt"
+        ArrayList<World> worldlist = new Arraylist<>();
+        float[7] worldvalues;
+        int counter;
+        Scanner = scanner = new Scanner(filepath);
         
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath)){
-            String line;
-            While((line = reader.readLine()) != null) {
-               System.out.println(line);
-            }
-         }
+        while(scanner.hasNextLine){
+         String line;
+         line = scanner.Next();
          
-         catch (IOException e){
-            e.printStackTrace():
-         }
-         
-     }      
-
+         if(line.contains("World:")){
+            Scanner worldsorter = new Scanner(line);
+            worldsorter.useDelimiter("\\s*[:|]\\s*");
+            
+               while(worldsorter.hasNext()){     
+                 String scans = worldinput.next();
+                  counter++
+               
+               if(label.equals("World")){
+                  String worldname = worldinput.next();
+               }
+               else{
+                  if(worldsorter.hasNext()){  
+                     worldvalues[counter - 1] = worldInput.nextFloat();
+                  }
+                  else{
+                  worldinput.Next();
+                  }
+                }
+              }
+              World neworld = new World(worldname, worldvalues[0]             
+              worldInput.close();
+              
+         }            
     public static void worldloader(String desiredword) {
         ArrayList<Float> worldloadeddata = new ArrayList<>();
         boolean namechecker = true;
@@ -234,4 +256,12 @@ public class simulationsetup {
         System.out.println("If global temperature increases above 18.7°C, -40% income from energy production, +25% maintenance costs.");
         System.out.println("If player goes $10M into debt, simulation ends.");
     }
-}
+
+    public static void createworld(String name,int coal, int natural, int nuclear, int green, int photo, int total, int temp, int PDRMech, ArrayList<float> worldlist){
+         
+        
+
+     
+     
+     
+}     
