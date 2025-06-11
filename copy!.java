@@ -117,7 +117,7 @@ public class simulationsetup {
         initialsavesim(worldstats, name); 
     }
     
-    public static void lowerupper(int arrayslot, int bound) {
+    public static void lowerupper(int arrayslot, int bound) { // should check if a value is qualified to be between the amounts when input, then once checked and placed into the array, should go back to wherever it left off in simulationsetup.
       int amount;
       boolean paramchecker = true;
       int lowerbound = 0;
@@ -137,7 +137,7 @@ public class simulationsetup {
       
    }
    
-    public static void readsortsimulations() { //turn into sort
+    public static void readsortworlds() { //turn into sort, should read all worlds from file, grab all values place them in the world objects, put the world objects in an arraylist, and then sort by temperature
         String filepath = "worlds.txt"
         ArrayList<World> worldlist = new Arraylist<>();
         float[7] worldvalues;
@@ -156,7 +156,7 @@ public class simulationsetup {
                  String scans = worldinput.next();
                   counter++
                
-               if(label.equals("World")){
+               if(worldsorter.equals("World")){
                   String worldname = worldinput.next();
                }
                else{
@@ -168,12 +168,14 @@ public class simulationsetup {
                   }
                 }
               }
-              World neworld = new World(worldname, worldvalues[0]             
+              World neworld = new World(worldname, worldvalues[0], worldvalues[1], worldvalues[2], worldvalues[3], worldvalues[4], worldvalues[5], worldvalues[6], worldvalues[7]);             
               worldInput.close();
-              
-         }            
-    public static void worldloader(String desiredword) {
-        ArrayList<Float> worldloadeddata = new ArrayList<>();
+         }     
+      }            
+    public static void worldloader(String desiredword) { // should load the world with the name that was passed into desiredword, find it, and make an object for it.
+        
+        float[7] worldstats;
+        int counter;
         boolean namechecker = true;
         String filepath = "worlds.txt";
         Scanner scanner = new Scanner(filepath);
@@ -197,8 +199,9 @@ public class simulationsetup {
               
               else { 
                if(worldInput.hasNextFloat()){
+               counter++
                float value = worldInput.nextFloat();
-               worldloadeddata.add(value);
+               worldstats[counter] = value;
                }
                else{
                worldinput.Next();
@@ -210,9 +213,10 @@ public class simulationsetup {
         }
             
     }
-
+    World Loadedworld = new World(worldname , worldstats[0] , worldstats[1] , worldstats[2] , worldstats[3] , worldstats[4] , worldstats[5] , worldstats[6], worldstats[7]);
     scanner.close();
     System.out.println("Values loaded.");
+    }
     
     
     public static void initialsavesim(int[] arr, String name) {

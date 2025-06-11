@@ -144,42 +144,86 @@ public class simulationsetup {
       
    }
    
-    public static void readsimulations() {
-        String filepath = "worlds.txt";
+      public static void readsortsimulations() { //turn into sort, should read all worlds, grab values and then put them in arraylist.
+        String filepath = "worlds.txt"
+        ArrayList<World> worldlist = new Arraylist<>();
+        float[7] worldvalues;
+        int counter;
+        Scanner = scanner = new Scanner(filepath);
         
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
-            String line;
-            while((line = reader.readLine()) != null) {
-               System.out.println(line);
-            }
-         }
-         
-         catch (IOException e){
-            e.printStackTrace();
-         }
-         
-     }      
-
-    public static void worldloader(String desiredword) {
-        String filepath = "worlds.txt";
-        int linenumber;
-        
-        try (BufferedReader reader = new BufferedReader(new FileReader(filepath))){
+        while(scanner.hasNextLine){
          String line;
-         while((line.reader.readLine()) != null) { 
-         linenumber++;
+         line = scanner.Next();
          
-            if (line.toLowerCase().matches(".*world:" + desiredword.toLowerCase() + "\\b.*")) {               
-            int worldline = linenumber;
-            }
+         if(line.contains("World:")){
+            Scanner worldsorter = new Scanner(line);
+            worldsorter.useDelimiter("\\s*[:|]\\s*");
+            
+               while(worldsorter.hasNext()){     
+                 String scans = worldinput.next();
+                  counter++
+               
+               if(worldsorter.equals("World")){
+                  String worldname = worldinput.next();
+               }
+               else{
+                  if(worldsorter.hasNext()){  
+                     worldvalues[counter - 1] = worldInput.nextFloat();
+                  }
+                  else{
+                  worldinput.Next();
+                  }
+                }
+              }
+              World neworld = new World(worldname, worldvalues[0], worldvalues[1], worldvalues[2], worldvalues[3], worldvalues[4], worldvalues[5], worldvalues[6], worldvalues[7]);             
+              worldInput.close();
+         }     
+      }  
+      
+     public static void worldloader(String desiredword) { // should load the world with the name that was passed into desiredword, find it, and make an object for it.
         
-          }
-         }
-        catch (IOException e){
-         System.out.println("Cannot read file" + e.getMessage()); 
+        float[7] worldstats;
+        int counter;
+        boolean namechecker = true;
+        String filepath = "worlds.txt";
+        Scanner scanner = new Scanner(filepath);
+        
+        while(scanner.hasNextLine && namechecker){
+           String line;
+           line = scanner.Next();
+          
+           if(line.contains("World:" + desiredword)){
+            namechecker = false;
+            
+            Scanner worldinput = new Scanner(line) 
+            worldinput.useDelimiter("\\s*[:|]\\s*");
+           
+             while(worldinput.hasNext()) {
+              String Label = worldinput.next();
+              
+              if(label.equals("World")){
+               String worldname = worldinput.next();
+              }
+              
+              else { 
+               if(worldInput.hasNextFloat()){
+               counter++
+               float value = worldInput.nextFloat();
+               worldstats[counter] = value;
+               }
+               else{
+               worldinput.Next();
+               }
+            } 
+
+           } 
+           worldInput.close();        
         }
-        
-         
+            
+    }
+    World Loadedworld = new World(worldname , worldstats[0] , worldstats[1] , worldstats[2] , worldstats[3] , worldstats[4] , worldstats[5] , worldstats[6], worldstats[7]);
+    scanner.close();
+    System.out.println("Values loaded.");
     }
 
     public static void initialsavesim(int[] arr, String name) {
