@@ -213,10 +213,9 @@ public class simulationsetup {
         }
             
     }
-    World Loadedworld = new World(worldname , worldstats[0] , worldstats[1] , worldstats[2] , worldstats[3] , worldstats[4] , worldstats[5] , worldstats[6], worldstats[7]);
+    World Loadedworld = new World(worldname , worldstats[0] , worldstats[1] , worldstats[2] , worldstats[3] , worldstats[4] , worldstats[5] , worldstats[6], worldstats[7);
     scanner.close();
     System.out.println("Values loaded.");
-    }
     
     
     public static void initialsavesim(int[] arr, String name) {

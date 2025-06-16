@@ -1,0 +1,2 @@
+World:saturn|Coalplant:1|Gasplant:1|Nuclearplant:11|Greenplant:1|PSplant:1|Money:10420000|WorldTemp:14.7264|TimeSincePDRMech:0|
+World:jupiter|Coalplant:30|Gasplant:20|Nuclearplant:30|Greenplant:100|PSplant:1|Money:10000000|WorldTemp:14.7|TimeSincePDRMech:0|
