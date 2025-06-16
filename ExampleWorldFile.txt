@@ -1,1 +1,0 @@
-World:Filename|Coalplant:#|Gasplant:#|Nuclearplant:#|Greenplant:#|PSplant:#|Money:#|WorldTemp:#|TimeSincePDRMech:#|
