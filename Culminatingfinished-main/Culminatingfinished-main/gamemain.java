@@ -1,14 +1,33 @@
 import java.util.Scanner;
 
+/**
+ * This class controls the main game functions and handles user play
+ * like advancing years, buying/selling plants, and ending the game.
+ * It manages game  transitions.
+ * 
+ * @author Jayden&Ari
+ * @version 1.0
+ */
 public class gamemain {
+
+    /** The world instance representing current world*/
     private world currentWorld;
+
+    /** Scanner used to read user input. */
     private Scanner sc;
 
+    /** 
+     * constructs the game with a world and a scanner for user input.
+     */
     public gamemain(world w, Scanner sc) {
         this.currentWorld = w;
         this.sc = sc;
     }
 
+    /**
+     * Runs the main game  until a game-over condition is met or the user exits.
+     * Displays the current status, handles year progress, purchasing, and selling.
+     */
     public void run() {
         while (true) {
             currentWorld.displayStatus();
@@ -51,7 +70,10 @@ public class gamemain {
         }
     }
 
-    
+    /**
+     * Reads an integer input from the user between a minimum and maximum value.
+     * Retries until a valid number is entered.
+     */
     private int getIntInput(int min, int max) {
         while (true) {
             String line = sc.nextLine();
@@ -66,6 +88,10 @@ public class gamemain {
         }
     }
 
+    /**
+     * does buying or selling power plants based on user input.
+     * Updates the world state and deducts or adds money.
+     */
     private void buyOrSell(boolean isBuying) {
         System.out.println((isBuying ? "Buy" : "Sell") + " menu:");
         System.out.println("1. Coal Plant");
@@ -145,13 +171,16 @@ public class gamemain {
         currentWorld.saveToFile("worlds.txt");
     }
 
-    private void updatePlant(int type, int delta) {
+    /**
+     * Updates the number of plants in the world based on type and amount added or removed.
+     */
+    private void updatePlant(int type, int change) {
         switch (type) {
-            case 1: currentWorld.coalplant += delta; break;
-            case 2: currentWorld.gasplant += delta; break;
-            case 3: currentWorld.nuclearplant += delta; break;
-            case 4: currentWorld.greenplant += delta; break;
-            case 5: currentWorld.psplant += delta; break;
+            case 1: currentWorld.coalplant += change; break;
+            case 2: currentWorld.gasplant += change; break;
+            case 3: currentWorld.nuclearplant += change; break;
+            case 4: currentWorld.greenplant += change; break;
+            case 5: currentWorld.psplant += change; break;
         }
     }
 }
